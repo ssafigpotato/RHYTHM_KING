@@ -24,6 +24,8 @@ SSAFY-11th-Seoul-07
 3. clone한 곳에서 본인 폴더 생성
 4. 문제 해결 후 PR
 
+- [pr설명](https://wayhome25.github.io/git/2017/07/08/git-first-pull-request-story/)
+
 ## 😍 참여자
 
 [tomato_o](https://github.com/ssafy11thseoul)<br>
