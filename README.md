@@ -1,4 +1,4 @@
-# 👑 RHYTHM_KING
+# 👑 (AlGO)RHYTHM_KING
 
 SSAFY-11th-Seoul-07
 
