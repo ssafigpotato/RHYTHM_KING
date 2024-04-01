@@ -13,7 +13,7 @@ class Location {
 		this.c = c;
 	}
 }
-public class Main {
+public class BOJ2178_미로탐색 {
 	static int N; // N개의 행
 	static int M; // M개의 열
 	static int[][] maze; // 미로
