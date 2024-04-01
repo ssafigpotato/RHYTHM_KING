@@ -1,4 +1,4 @@
-package baekjoon_2178_미로탐색;
+package 선정;
 
 import java.util.LinkedList;
 import java.util.Queue;
