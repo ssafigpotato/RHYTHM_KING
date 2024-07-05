@@ -1,9 +1,10 @@
 package BOJ_3190;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.Arrays;
+import java.util.Deque;
 import java.util.List;
-import java.util.Queue;
 import java.util.Scanner;
 
 public class Main {
@@ -42,9 +43,9 @@ public class Main {
 
 		for (int i = 0; i < num2; i++) {
 			int A = sc.nextInt();
-			String str = sc.next();
+			char str = sc.next().charAt(0);
 			int B = 0;
-			if (str == "L") {
+			if (str == 'L') {
 				B = -1;
 			} else {
 				B = 1;
@@ -63,118 +64,84 @@ public class Main {
 	}
 
 	static void move() {
-		Queue<int[]> snake_h = new LinkedList<>();
-		Queue<int[]> snake_t = new LinkedList<>();
 
-		snake_h.add(new int[] { 1, 1 });
-		// 머리 먼저 넣어주기
-		snake_t.add(new int[] { 1, 1 });
-		// 꼬리 넣어주기
+		Deque<int[]> snake = new ArrayDeque<int[]>();
 
-		map[1][1] = -1;
+		snake.addFirst(new int[] { 1, 1 }); // 머리 넣어주기
+		map[1][1] = -1; // 뱀의 시작위치 -1로 저장해두기
 
-		int d = 0;
-		// 현재 방향을 정하는 변수
+		int cnt = 0; // 이동하는 시간
 
-		int cnt = 0;
-		// 시간
+		int d = 0; // 방향 조정용
 
-		boolean flag = false;
-		// 몸이랑 부딪히는거나 벽이라 부딪히는 것 판단용
-
-		while (!flag) {
-
-			System.out.println(cnt);
-
-			for (int i = 1; i <= N; i++) {
-				for (int j = 1; j <= N; j++) {
-					System.out.print(map[i][j] + " ");
-				}
-				System.out.println();
-			}
-			System.out.println();
+		while (true) {
 
 			cnt++;
-
-			var curr_h = snake_h.poll();
-			int snake_hX = curr_h[0];
-			int snake_hY = curr_h[1];
-			// 현재 뱀 머리 위치
-
-			var curr_t = snake_t.poll();
-			int snake_tX = curr_t[0];
-			int snake_tY = curr_t[1];
-			// 현재 뱀 꼬리 위치
 
 			for (int i = 0; i < direction.size(); i++) {
 				if (cnt - 1 == direction.get(i)[0]) {
 					if (direction.get(i)[1] == -1) {
 						d -= 1;
-					} else {
+					} else if (direction.get(i)[1] == 1) {
 						d += 1;
 					}
 				}
 			}
+
+			// 여기서 이제 d가 범위를 0 ~ 3 범위를 벗어나는 것을 방지해주기 위해서 값 조정
 
 			if (d < 0) {
 				d = 3;
 			} else if (d > 3) {
 				d = 0;
 			}
-			// 범위를 초과할 경우 방지용
 
-			int nx = snake_hX + di[d];
-			int ny = snake_hY + dj[d];
+			// 여기서부터 이제 뱀의 머리를 이동해준다.
+			var curr_head = snake.peekFirst();
 
+			int now_x = curr_head[0];
+			int now_y = curr_head[1];
+
+			int nx = now_x + di[d];
+			int ny = now_y + dj[d];
+
+			// 종료 조건
 			if (check(nx, ny)) {
 				ans = cnt;
-				flag = true;
-			} else if (map[nx][ny] == 1) {
-				// 사과를 만나는 경우
+				break;
+			}
+
+			// 사과를 만났을 경우
+
+			if (map[nx][ny] == 1) {
 				map[nx][ny] = -1;
-				snake_h.add(new int[] { nx, ny });
-				// 머리는 이동한 좌표를 넣어주고
-				snake_t.add(curr_t);
-				// 꼬리는 그대로이므로 이동 없이 좌표 넣어주기
+				// 지도의 값을 뱀의 몸 값으로 바꿔주고
+
+				snake.addFirst(new int[] { nx, ny }); // 이동한 머리의 좌표도 넣어준다.
+				// 그리고 꼬리는 이동 x
+
+				// 아무것도 없는 곳일 경우
+
 			} else if (map[nx][ny] == 0) {
-				// 아무것도 없는 경우
-
-				int[] tmp = tail_move(curr_t);
-				// 꼬리 이동 후 다음 좌표 넣어주기
-				snake_t.add(tmp);
-
 				map[nx][ny] = -1;
-				snake_h.add(new int[] { nx, ny });
-				// 머리 이동한 좌표 넣어주기
+				// 머리는 이동하기 때문에 -1로 값 변경
 
+				snake.addFirst(new int[] { nx, ny });
+				// 이동한 머리의 좌표 삽입
+
+				var curr_tail = snake.pollLast();
+
+				map[curr_tail[0]][curr_tail[1]] = 0;
+				// 꼬리가 당겨지고 원래 있던 꼬리의 위치는 다시 0으로 바꿔주기
 			}
 
 		}
 
 	}
 
-	// 벽이나 몸 부딪혔는지 확인용 메서드
+	// 범위를 벗어나거나 몸이랑 부딪히면 종료하는 조건
 	static boolean check(int x, int y) {
 		return x < 1 || x > N || y < 1 || y > N || map[x][y] == -1;
-	}
-
-	static int[] tail_move(int[] arr) {
-		int nx = arr[0];
-		int ny = arr[1];
-		map[nx][ny] = 0;
-
-		int[] next = new int[2];
-
-		for (int i = 0; i < 4; i++) {
-			int X = nx + di[i];
-			int Y = ny + dj[i];
-
-			if (map[X][Y] == -1) {
-				next[0] = X;
-				next[1] = Y;
-			}
-		}
-		return next;
 	}
 
 }
