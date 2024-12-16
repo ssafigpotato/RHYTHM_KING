@@ -7,7 +7,6 @@ SSAFY-11th-Seoul-07
 ## 🥅 Goal
 
 - 알고리즘 자신감 얻기
-- A형 취득
 - 리듬왕
 
 ## 🚃 운영 방식
@@ -16,7 +15,7 @@ SSAFY-11th-Seoul-07
 - 대면 여부: 대면
 - 문제 풀이 개수: 한 사람 당 일주일 2개
   - 공통 1
-  - 개인 1
+  - 개인 1 (매주 랜덤 유형에 따라 선택)
 - 자신이 맡은 문제는 꼭 풀어오시고, 나머지 문제는 자유
 
 ## ✨ 참여방법
@@ -34,6 +33,8 @@ SSAFY-11th-Seoul-07
 [SeoH](https://github.com/seoh77)<br>
 [ghlim00](https://github.com/ghlim00)<br>
 [chelsea7023](https://github.com/chelsea7023)<br>
+[undeadtimo](https://github.com/undeadtimo)<br>
+[celestedayoung](https://github.com/celestedayoung)
 
 ## 💡 주차별 문제
 
@@ -107,8 +108,7 @@ SSAFY-11th-Seoul-07
 | 문제 4 | BOJ13023 ABCDE     | BOJ23289 온풍기안녕     | BOJ2467 용액          |
 | 문제 5 | PRO 신규아이디추천 | BOJ21608 상어초등학교     | PRO 헤비유저가소유한장소 |
 | 문제 6 |                    | PRO 크레인인형뽑기게임  | BOJ3055 탈출
-| 문제 7 |                    |
-| 문제 8 |                    |
+
 
 <br>
 
@@ -121,8 +121,7 @@ SSAFY-11th-Seoul-07
 | 문제 4 | BOJ16235 나무재테크  | BOJ1715 카드정렬하기     | BOJ12015 가장긴증가하는부분수열2 | BOJ17143 낚시왕 |
 | 문제 5 | BOJ1068 트리        | BOJ18405 경쟁적 전염     | BOJ1484 다이어트 | BOJ20056 마법사상어와파이어볼 |
 | 문제 6 | PRO 상품구매회원비율구하기 | PRO 등굣길  | PRO 도둑질 | PRO 여행경로  |
-| 문제 7 |                    |
-| 문제 8 |                    |
+
 
 <br>
 
@@ -135,8 +134,7 @@ SSAFY-11th-Seoul-07
 | 문제 4 | BOJ5052 전화번호목록     | 
 | 문제 5 | BOJ12869 뮤탈리스크      |
 | 문제 6 | BOJ1717 집합의표현       |
-| 문제 7 |                         |
-| 문제 8 |                         |
+
 
 <br>
 
@@ -149,8 +147,7 @@ SSAFY-11th-Seoul-07
 | 문제 4 | BOJ18291 비요뜨의징검다리건너기  | BOJ3020 개똥벌레 | BOJ2866 문자열 잘라내기 |
 | 문제 5 | PRO 옹알이(1)            | BOJ1253 좋다             | BOJ21939 문제추천시스템ver1 |
 | 문제 6 | BOJ1722 순열의순서       | PRO 징검다리              | BOJ1525 퍼즐 | 
-| 문제 7 |                         |
-| 문제 8 |                         |
+
 
 
 
