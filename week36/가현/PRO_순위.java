@@ -38,7 +38,7 @@ class Solution {
                 }
             }
             
-            // 모든 다른 선수와의 관계를 알면 순위 확정
+            // 본인-모든 다른 선수와의 관계를 알면 순위 확정
             if (knownMatches == n - 1) {
                 answer++;
             }
